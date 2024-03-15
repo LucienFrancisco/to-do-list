@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+	<style>
+		.completed {
+			text-decoration: line-through;
+		}
+	</style>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <div class="container">
+        <input type="text" id="taskInput" placeholder="Add a task...">
+        <button onclick="addTask()">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+</body>
+
+	<script>
+		const taskInput = document.getElementById('taskInput');
+		const taskList = document.getElementById('taskList');
+
+		function addTask() {
+			const task = document.createElement('li');
+			const checkbox = document.createElement('input');
+			checkbox.type = 'checkbox';
+			checkbox.onclick = function() {
+				task.classList.toggle('completed');
+			};
+			const span = document.createElement('span');
+			span.textContent = taskInput.value;
+			const deleteButton = document.createElement('button');
+			deleteButton.textContent = 'Delete';
+			deleteButton.onclick = function() {
+				taskList.removeChild(task);
+			};
+			task.appendChild(checkbox);
+			task.appendChild(span);
+			task.appendChild(deleteButton);
+			taskList.appendChild(task);
+			taskInput.value = '';
+		}
+// ffffffffffffffffffffffffffffff
+        function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    if (taskInput.value.trim() === '') {
+        alert('Please enter a task before adding.');
+        return;
+    }
+
+    const task = document.createElement('li');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.onclick = function() {
+        task.classList.toggle('completed');
+    };
+    const span = document.createElement('span');
+    span.textContent = taskInput.value;
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+        taskList.removeChild(task);
+    };
+    task.appendChild(checkbox);
+    task.appendChild(span);
+    task.appendChild(deleteButton);
+    taskList.appendChild(task);
+    taskInput.value = '';
+}
+	</script>
+</body>
+</html>
